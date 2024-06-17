@@ -30,11 +30,11 @@ def gen_times_markup(date, times):
         markup.add(types.InlineKeyboardButton(times[i], callback_data=f'datetime+{date}+{times[i]}'))
     return markup
 
-def every8s():
+def every5s():
     global config
     # print('im_in_every8s')
     subs = Subscription(config.subs_cfg)
-    msg = subs.get_message('every8s')
+    msg = subs.get_message('every5s')
     users = []
     markup_subscription = types.InlineKeyboardMarkup(row_width = 3)
     markup_subscription.add(types.InlineKeyboardButton("Отказаться от рассылки", callback_data=f'subscription+remove'))
@@ -49,6 +49,7 @@ def every8s():
         except:
             # users.append(subs.user_list[i])
             pass
+        time.sleep(1)
     subs.user_list = np.unique(users).tolist()
     subs.dump_data()
 
@@ -56,7 +57,7 @@ def every8s():
 
 def subscription():
     # print('im_in_subscription')
-    sc.every(5).seconds.do(every8s)
+    sc.every(5).seconds.do(every5s)
     while True:
         sc.run_pending()
         time.sleep(1)

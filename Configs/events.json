@@ -1,12 +1,25 @@
 {
     "monday":{
+        "claying":{
+            "start": "13:30",
+            "lasts": "02:00",
+            "people": 5
+        },
+        "pottering_circle":{
+            "start": "16:00",
+            "lasts": "02:50",
+            "people": 3
+        }
+        },
+    "tuesday":{
         
     },
-    "tuesday":{
-
-    },
     "wednesday":{
-
+        "workshop":{
+            "starts": "10:00",
+            "lasts":  "01:00",
+            "people":   10
+        }
     },
     "thursday":{
 

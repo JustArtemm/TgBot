@@ -1,7 +1,7 @@
 {
     "users": [],
     "messages": {
-        "every8s": {
+        "every5s": {
             "text": "Every 5 s"
         }
     }
