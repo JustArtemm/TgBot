@@ -95,6 +95,8 @@ if __name__ == '__main__':
                 reply_markup=get_main_screen(),
             )
         
+        schedule.drop_outdated()
+        
 
     @bot.callback_query_handler(
         func=lambda call: call.data.startswith(calendar_1_callback.prefix)

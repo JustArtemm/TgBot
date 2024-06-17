@@ -32,16 +32,22 @@ class Schedule:
         self.schedule.to_csv(self.schedule_csv, index=False)
 
 
-        now  = datetime.now()
-        self.y = now.year
-        self.m  = now.month
-        self.d   = now.day
+        self.now  = datetime.now()
+        self.y = self.now.year
+        self.m  = self.now.month
+        self.d   = self.now.day
 
     def read_schedule(self):
         self.schedule  = pd.read_csv(self.schedule_csv)
 
     def save_schedule(self):
         self.schedule.to_csv(self.schedule_csv, index=False)
+
+    def drop_outdated(self):
+        self.read_schedule()
+        self.now = datetime.now()
+        self.schedule = self.schedule[self.schedule['date'] >= self.now.strftime('%d.%m.%Y')]
+        self.save_schedule()
 
     def add_schedule(self, date, time, user, event, people):
         row = pd.DataFrame({'date':date, 'time': time, 'user': user, 'event': event, 'people': people}, index=[0])
