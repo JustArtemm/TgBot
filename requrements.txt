@@ -1,3 +1,7 @@
 pytelegrambotapi
 json
 telebot-calendar
+pandas
+numpy
+google-api-python-client
+oauth2client
