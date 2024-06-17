@@ -11,6 +11,7 @@ class BaseConfig():
         self.cfg = config
         self.Root = self.cfg['Root']
         self.schedule_cfg = self.cfg['schedule_cfg']
+        self.subs_cfg  = self.cfg['subscription_cfg']
 
         with open(os.path.join(self.Root, self.cfg['bot_credentials']), 'r') as f:
             self.creds = f.read()

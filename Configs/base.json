@@ -1,4 +1,5 @@
 {   "Root": "/Users/artem/Documents/TgBot",
     "bot_credentials": "bot_credentials.txt",
-    "schedule_cfg": "/Users/artem/Documents/TgBot/Configs/schedule.json"
+    "schedule_cfg": "/Users/artem/Documents/TgBot/Configs/schedule.json",
+    "subscription_cfg": "/Users/artem/Documents/TgBot/Configs/subscription.json"
 }
