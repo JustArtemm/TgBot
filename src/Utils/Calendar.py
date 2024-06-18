@@ -18,8 +18,11 @@ class Schedule:
                         'people',]
         self.events  = config['events']
         self.schedule_csv = 'schedule.csv'
-        self.schedule = pd.DataFrame(columns=self.df_columns)
-        self.schedule.to_csv(self.schedule_csv, index=False)
+        if os.path.exists(self.schedule_csv):
+            self.read_schedule()
+        else:
+            self.schedule = pd.DataFrame(columns=self.df_columns)
+            self.schedule.to_csv(self.schedule_csv, index=False)
 
         self.weekdays = {
             0: 'monday',
@@ -82,8 +85,24 @@ class Schedule:
         return times_to_stay
     
     # def make_events4today(self):
+    def convert_df(self, df):
+        # line1 = f"Выбранная дата: {df.loc["date",0]}"
+        line2 = ''
+        for i in range(len(df)):
+            line2 += f"{df.iloc[i]['time']}  {df.iloc[i]['user']}  {df.iloc[i]['event']}  {df.iloc[i]['people']}  \n"
+        return "\n" + line2
 
+    def view(self, df):
+        if df.empty:
+            return 'На этот день нет событий'
+        else:
+            return 'События на этот день:\n' + self.convert_df(df)
 
+    def view_schedule(self, date):
+        date = date.strftime('%d.%m.%Y')
+        self.read_schedule()
+        return self.view(self.schedule[self.schedule['date'] == date])
+        
     
     def get_available_times(self, date):
         

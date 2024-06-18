@@ -1,5 +1,10 @@
-{   "Root": "/Users/artem/Documents/TgBot",
+{
+    "Root": "/Users/artem/Documents/TgBot",
     "bot_credentials": "bot_credentials.txt",
     "schedule_cfg": "/Users/artem/Documents/TgBot/Configs/schedule.json",
-    "subscription_cfg": "/Users/artem/Documents/TgBot/Configs/subscription.json"
+    "subscription_cfg": "/Users/artem/Documents/TgBot/Configs/subscription.json",
+    "secret_admin_code": "Tg1fIn2iYSFX345BLqVWSSmQkfoIEZjR",
+    "admin_users": [
+        297516646
+    ]
 }
